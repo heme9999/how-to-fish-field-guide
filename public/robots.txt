@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://how-to-fish-field-guide.example/sitemap.xml
+Sitemap: https://how-to-fish-field-guide.overjoyed-week-dcb.workers.dev/sitemap.xml
