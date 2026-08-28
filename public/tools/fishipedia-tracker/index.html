@@ -4,12 +4,12 @@
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
   <title>How to Fish Fishipedia Tracker & Checklist</title>
   <meta name="description" content="Track your How to Fish game Fishipedia progress with a fast private checklist saved locally in your browser. No login required.">
-  <link rel="canonical" href="https://how-to-fish-field-guide.overjoyed-week-dcb.workers.dev/tools/fishipedia-tracker/"><link rel="stylesheet" href="/styles.css">
+  <link rel="canonical" href="https://how-to-fish-field-guide.overjoyed-week-dcb.workers.dev/tools/fishipedia-tracker/"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/styles.css">
 </head>
-<body>
-  <header class="site-header"><nav class="nav wrap"><a class="brand" href="/">How to Fish <span>Field Guide</span></a><div class="nav-links"><a href="/creatures/">Creatures</a><a href="/tools/fishipedia-tracker/">Tracker</a><a href="/guides/beginner-guide/">Guides</a><a href="/about/">About</a></div></nav></header>
+<body class="inner-page tracker-page">
+  <header class="site-header"><nav class="nav wrap" aria-label="Primary navigation"><a class="brand" href="/"><span class="brand-mark" aria-hidden="true">HF</span><span>How to Fish <em>Field Guide</em></span></a><div class="nav-links"><a href="/creatures/">Creatures</a><a href="/tools/fishipedia-tracker/" aria-current="page">Tracker</a><a href="/guides/beginner-guide/">Guides</a><a href="/about/">About</a></div></nav></header>
   <main class="wrap"><header class="page-head content"><div class="breadcrumbs"><a href="/">Home</a> / Tools / Fishipedia Tracker</div><div class="eyebrow" style="color:#b84f31">Private local tool</div><h1>Fishipedia tracker</h1><p>Mark the launch entries you have caught. Progress is stored only in this browser and is never sent to a server.</p></header>
-    <section class="section" style="padding-top:10px" data-tracker><div class="filters"><input type="search" data-search placeholder="Search creatures…" aria-label="Search creatures"><select data-filter aria-label="Filter progress"><option value="all">All entries</option><option value="open">Not caught</option><option value="done">Caught</option></select></div><div class="tracker-summary"><div class="progress" aria-hidden="true"><span data-progress></span></div><strong data-count>0 entries complete</strong></div>
+    <section class="section tracker-section" data-tracker><div class="filters"><input type="search" data-search placeholder="Search creatures…" aria-label="Search creatures"><select data-filter aria-label="Filter progress"><option value="all">All entries</option><option value="open">Not caught</option><option value="done">Caught</option></select><button class="quiet-button" type="button" data-reset>Reset progress</button></div><div class="tracker-summary"><div class="progress" role="progressbar" aria-label="Fishipedia completion" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0" data-progressbar><span data-progress></span></div><strong data-count aria-live="polite">0 entries complete</strong></div><p class="save-note"><span aria-hidden="true">●</span> Changes save automatically on this device.</p><div class="tracker-toast" data-toast role="status" aria-live="polite"></div>
       <div class="check-grid">
         <label class="check-item"><input type="checkbox" value="brown-crab"><span><strong>Brown Crab</strong><br><small>Crab Fishing Rod · Free Lure</small></span></label>
         <label class="check-item"><input type="checkbox" value="shrimp"><span><strong>Shrimp</strong><br><small>Crab Fishing Rod · Free Lure</small></span></label>
@@ -21,7 +21,7 @@
         <label class="check-item"><input type="checkbox" value="goldfish"><span><strong>Goldfish</strong><br><small>Fishing Rod · Free Lure</small></span></label>
         <label class="check-item"><input type="checkbox" value="piranha"><span><strong>Piranha</strong><br><small>Fishing Rod · Hot Dog</small></span></label>
         <label class="check-item"><input type="checkbox" value="spider-crab"><span><strong>Spider Crab</strong><br><small>Boss encounter</small></span></label>
-      </div><div class="notice"><strong>MVP note:</strong> The tracker currently contains the verified seed set, not all 49 entries. We will expand it as requirements are reproduced.</div>
+      </div><p class="empty-state hidden" data-empty>No creatures match this view.</p><div class="notice"><strong>Current coverage:</strong> This tracker contains 10 cross-checked early-game entries from the reported 49-entry launch catalog. We expand it only when requirements can be reproduced.</div>
     </section>
   </main>
   <footer class="site-footer"><div class="wrap"><strong>How to Fish Field Guide</strong><p class="fine">No analytics or account required for tracker progress.</p></div></footer><script src="/app.js" defer></script>

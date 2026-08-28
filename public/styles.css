@@ -21,6 +21,7 @@ body {
 }
 a { color: var(--sea-dark); text-underline-offset: 3px; }
 a:hover { color: var(--coral); }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible { outline: 3px solid #ff9d63; outline-offset: 3px; }
 img { max-width: 100%; }
 .wrap { width: min(1120px, calc(100% - 32px)); margin-inline: auto; }
 .site-header { position: relative; z-index: 20; background: #082f32; color: #fff; border-bottom: 1px solid rgba(255,255,255,.13); }
@@ -31,6 +32,7 @@ img { max-width: 100%; }
 .brand-mark { display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid #ffbc77; border-radius: 50% 50% 45% 55%; color: #ffbc77 !important; font: 800 11px/1 ui-monospace, monospace; transform: rotate(-5deg); box-shadow: inset 0 0 0 3px #082f32, inset 0 0 0 4px rgba(255,188,119,.4); }
 .nav-links { display: flex; flex-wrap: wrap; gap: 18px; }
 .nav-links a { color: #e8f5ef; text-decoration: none; font-weight: 650; font-size: .94rem; }
+.nav-links a[aria-current="page"] { color:#ffbc77; text-decoration:underline; text-decoration-thickness:2px; text-underline-offset:7px; }
 .hero { padding: 88px 0 68px; background: var(--sea-dark); color: #fff; }
 .visual-hero { position: relative; isolation: isolate; min-height: 690px; display: flex; align-items: center; overflow: hidden; }
 .hero-art { position: absolute; z-index: -3; inset: 0; background: url("./assets/hero-fishing-adventure-v1.webp") center/cover no-repeat; transform: scale(1.015); }
@@ -104,26 +106,41 @@ h3 { font-size: 1.25rem; }
 .intel-row:last-child { border-bottom:0; }
 .intel-row > span { display:grid;place-items:center;width:48px;height:48px;border-radius:50%;background:var(--sea);color:#fff;font:900 1rem ui-monospace,monospace; }
 .intel-row p { margin:0; }.intel-row.muted{opacity:.65;}
+.inner-page { background:linear-gradient(135deg,rgba(18,93,98,.035),transparent 38%),var(--paper); }
 .page-head { padding: 58px 0 32px; }
+.inner-page .page-head { position:relative; }
+.inner-page main > header.page-head::after { content:""; display:block; width:72px; height:3px; margin-top:28px; background:linear-gradient(90deg,var(--coral),#ffbc77); }
 .page-head h1 { font-size: clamp(2.4rem, 6vw, 4.4rem); }
+.page-head > p { color:#35443b; font-size:1.08rem; }
 .content { max-width: 780px; }
 .notice { border-left: 5px solid var(--coral); padding: 16px 20px; background: #fff3dc; margin: 24px 0; }
+.database-section { padding-top:20px; }
 .table-wrap { overflow-x: auto; border-radius: 12px; border: 1px solid var(--line); background: var(--panel); }
+.mobile-table-hint { display:none; color:var(--muted); font-size:.9rem; }
 table { width: 100%; border-collapse: collapse; min-width: 680px; }
 th, td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--line); }
 th { background: var(--sea-dark); color: #fff; }
 tr:last-child td { border-bottom: 0; }
+.tracker-section { padding-top:10px; }
 .filters { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 22px; }
 input[type="search"], select { min-height: 44px; padding: 0 12px; border: 1px solid #afa58d; border-radius: 8px; background: #fff; font: inherit; }
+.quiet-button { min-height:44px; margin-left:auto; padding:0 14px; border:1px solid #a99d84; border-radius:8px; color:var(--sea-dark); background:transparent; font:inherit; font-size:.9rem; font-weight:700; cursor:pointer; }
+.quiet-button:hover { background:#fff8e9; border-color:var(--coral); }
 .tracker-summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin: 20px 0; }
 .progress { height: 12px; flex: 1; background: #ddd3bc; border-radius: 999px; overflow: hidden; }
 .progress > span { display: block; height: 100%; width: 0; background: var(--success); transition: width .2s ease; }
 .check-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
-.check-item { display: flex; align-items: flex-start; gap: 10px; padding: 14px; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; }
-.check-item input { margin-top: 6px; accent-color: var(--success); }
+.check-item { display: flex; align-items: flex-start; gap: 12px; min-height:82px; padding: 16px; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; cursor:pointer; transition:border-color .15s ease,background .15s ease; }
+.check-item:hover { border-color:#9a8f77; background:#fffdf6; }
+.check-item input { width:19px; height:19px; margin-top: 3px; flex:0 0 auto; accent-color: var(--success); }
 .check-item.checked { opacity: .65; text-decoration: line-through; }
+.save-note { margin:-6px 0 22px; color:var(--muted); font-size:.86rem; }
+.save-note span { color:var(--success); }
+.tracker-toast { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); clip-path:inset(50%); white-space:nowrap; }
+.empty-state { padding:30px; border:1px dashed #aaa087; border-radius:10px; color:var(--muted); text-align:center; }
 .breadcrumbs { font-size: .9rem; color: var(--muted); margin-bottom: 20px; }
-.verification { display: flex; flex-wrap: wrap; gap: 10px; padding: 14px; border: 1px dashed #9c927b; border-radius: 10px; color: var(--muted); font-size: .9rem; }
+.verification { display: flex; flex-wrap: wrap; gap: 10px; margin:22px 0 34px; padding: 14px; border: 1px dashed #9c927b; border-radius: 10px; color: var(--muted); font-size: .9rem; }
+.guide-page article > h2 { margin-top:34px; }
 .site-footer { padding: 44px 0; color: #d9e8e2; background: #102b2c; }
 .site-footer a { color: #fff; }
 .footer-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 30px; }
@@ -133,6 +150,9 @@ input[type="search"], select { min-height: 44px; padding: 0 12px; border: 1px so
 @media (max-width: 760px) {
   .hero-grid, .grid, .footer-grid, .check-grid, .section-heading, .intel-grid, .signal-grid { grid-template-columns: 1fr; }
   .nav { align-items: flex-start; padding: 18px 0; flex-direction: column; }
+  .nav-links { width:100%; gap:0; display:grid; grid-template-columns:repeat(4,1fr); }
+  .nav-links a { min-height:42px; display:grid; place-items:center; border:1px solid rgba(255,255,255,.12); border-right:0; font-size:.85rem; }
+  .nav-links a:last-child { border-right:1px solid rgba(255,255,255,.12); }
   .visual-hero { min-height:760px; align-items:flex-start; padding:70px 0 52px; }
   .hero-art { background-position:62% center; }
   .hero-shade { background:linear-gradient(180deg,rgba(3,28,31,.98) 0%,rgba(3,28,31,.82) 52%,rgba(3,28,31,.35) 100%); }
@@ -143,4 +163,28 @@ input[type="search"], select { min-height: 44px; padding: 0 12px; border: 1px so
   .feature-card.featured { transform:none; }
   .intel-grid { gap:44px; }
   .intel-board { padding:28px; }
+  .page-head { padding:44px 0 22px; }
+  .page-head h1 { font-size:clamp(2.35rem,12vw,3.4rem); }
+  .quiet-button { margin-left:0; width:100%; }
+  .filters input[type="search"], .filters select { flex:1 1 44%; min-width:0; }
+  .tracker-summary { align-items:flex-start; flex-direction:column-reverse; }
+  .progress { width:100%; }
+  .mobile-table-hint { display:block; }
+  .database-page .table-wrap { overflow:visible; border:0; background:transparent; }
+  .database-page table { min-width:0; }
+  .database-page thead { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); }
+  .database-page tbody, .database-page tr, .database-page td { display:block; width:100%; }
+  .database-page tr { margin-bottom:14px; padding:12px 16px; border:1px solid var(--line); border-radius:10px; background:var(--panel); box-shadow:0 6px 18px rgba(23,32,27,.05); }
+  .database-page td { display:grid; grid-template-columns:82px 1fr; gap:10px; padding:8px 0; border-bottom:1px dashed #ded5c0; }
+  .database-page td:last-child { border-bottom:0; }
+  .database-page td::before { color:var(--muted); font-size:.76rem; font-weight:800; text-transform:uppercase; letter-spacing:.06em; }
+  .database-page td:nth-child(1)::before { content:"Creature"; }
+  .database-page td:nth-child(2)::before { content:"Type"; }
+  .database-page td:nth-child(3)::before { content:"Rod"; }
+  .database-page td:nth-child(4)::before { content:"Lure"; }
+  .database-page td:nth-child(5)::before { content:"Status"; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior:auto !important; transition:none !important; }
 }
