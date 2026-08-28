@@ -21,6 +21,7 @@ if (tracker) {
     bar.style.width = `${Math.round((complete / boxes.length) * 100)}%`;
     progressbar?.setAttribute("aria-valuenow", String(complete));
     progressbar?.setAttribute("aria-valuetext", `${complete} of ${boxes.length} entries complete`);
+    if (reset) reset.disabled = complete === 0;
   }
 
   function applyFilters() {
@@ -57,6 +58,8 @@ if (tracker) {
       box.checked = false;
       box.closest(".check-item").classList.remove("checked");
     });
+    if (search) search.value = "";
+    if (filter) filter.value = "all";
     localStorage.removeItem(storageKey);
     renderProgress();
     applyFilters();

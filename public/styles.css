@@ -35,7 +35,7 @@ img { max-width: 100%; }
 .nav-links a[aria-current="page"] { color:#ffbc77; text-decoration:underline; text-decoration-thickness:2px; text-underline-offset:7px; }
 .hero { padding: 88px 0 68px; background: var(--sea-dark); color: #fff; }
 .visual-hero { position: relative; isolation: isolate; min-height: 690px; display: flex; align-items: center; overflow: hidden; }
-.hero-art { position: absolute; z-index: -3; inset: 0; background: url("./assets/hero-fishing-adventure-v1.webp") center/cover no-repeat; transform: scale(1.015); }
+.hero-art { position: absolute; z-index: -3; inset: 0; width:100%; height:100%; max-width:none; object-fit:cover; object-position:center; transform: scale(1.015); }
 .hero-shade { position: absolute; z-index: -2; inset: 0; background: linear-gradient(90deg, rgba(3,28,31,.98) 0%, rgba(3,34,36,.88) 32%, rgba(3,34,36,.26) 67%, rgba(3,28,31,.12) 100%), linear-gradient(0deg, rgba(3,27,29,.65), transparent 34%); }
 .visual-hero::after { content:""; position:absolute; inset:0; z-index:-1; pointer-events:none; background-image: linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px); background-size: 56px 56px; mask-image: linear-gradient(90deg,#000,transparent 70%); }
 .hero-grid { display: grid; grid-template-columns: 1.25fr .75fr; align-items: center; gap: 50px; }
@@ -126,6 +126,7 @@ tr:last-child td { border-bottom: 0; }
 input[type="search"], select { min-height: 44px; padding: 0 12px; border: 1px solid #afa58d; border-radius: 8px; background: #fff; font: inherit; }
 .quiet-button { min-height:44px; margin-left:auto; padding:0 14px; border:1px solid #a99d84; border-radius:8px; color:var(--sea-dark); background:transparent; font:inherit; font-size:.9rem; font-weight:700; cursor:pointer; }
 .quiet-button:hover { background:#fff8e9; border-color:var(--coral); }
+.quiet-button:disabled { opacity:.48; cursor:not-allowed; background:transparent; border-color:#bdb49f; }
 .tracker-summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin: 20px 0; }
 .progress { height: 12px; flex: 1; background: #ddd3bc; border-radius: 999px; overflow: hidden; }
 .progress > span { display: block; height: 100%; width: 0; background: var(--success); transition: width .2s ease; }
@@ -151,13 +152,19 @@ input[type="search"], select { min-height: 44px; padding: 0 12px; border: 1px so
   .hero-grid, .grid, .footer-grid, .check-grid, .section-heading, .intel-grid, .signal-grid { grid-template-columns: 1fr; }
   .nav { align-items: flex-start; padding: 18px 0; flex-direction: column; }
   .nav-links { width:100%; gap:0; display:grid; grid-template-columns:repeat(4,1fr); }
-  .nav-links a { min-height:42px; display:grid; place-items:center; border:1px solid rgba(255,255,255,.12); border-right:0; font-size:.85rem; }
+  .nav-links a { min-height:44px; display:grid; place-items:center; border:1px solid rgba(255,255,255,.12); border-right:0; font-size:.85rem; }
   .nav-links a:last-child { border-right:1px solid rgba(255,255,255,.12); }
-  .visual-hero { min-height:760px; align-items:flex-start; padding:70px 0 52px; }
-  .hero-art { background-position:62% center; }
+  .visual-hero { min-height:0; align-items:flex-start; padding:56px 0 40px; }
+  .hero-art { object-position:62% center; }
   .hero-shade { background:linear-gradient(180deg,rgba(3,28,31,.98) 0%,rgba(3,28,31,.82) 52%,rgba(3,28,31,.35) 100%); }
-  .visual-hero h1 { font-size:clamp(3.5rem,18vw,5.3rem); }
-  .dossier { max-width:320px; margin:22px 0 0 auto; }
+  .hero-grid { gap:24px; }
+  .visual-hero h1 { font-size:clamp(3.35rem,17vw,5rem); margin-bottom:18px; }
+  .lede { font-size:1.08rem; }
+  .actions { margin-top:22px; }
+  .actions .button { flex:1 1 100%; width:100%; }
+  .dossier { width:100%; max-width:none; margin:10px 0 0; padding:20px; transform:rotate(.4deg); }
+  .dossier-number { margin-top:18px; font-size:4.4rem; }
+  .mini-rule { margin:16px 0 10px; }
   .signal-grid > div { min-height:64px; border-right:1px solid rgba(255,255,255,.22); border-bottom:1px solid rgba(255,255,255,.18); }
   .section-heading > p { padding-left:0; border-left:0; }
   .feature-card.featured { transform:none; }
