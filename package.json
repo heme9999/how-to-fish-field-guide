@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "generate": "node scripts/generate-creature-pages.mjs",
     "check": "node scripts/check-site.mjs",
     "deploy": "wrangler deploy"
   },
