@@ -32,11 +32,12 @@ for (const creature of creatures) {
     ]
   });
   const guideLink = creature.guide ? `<p><a class="button" href="${creature.guide}">Read the Spider Crab strategy →</a></p>` : "";
+  const pageTitle = creature.type === "Boss" ? `${creature.name} Boss Route — How to Fish Game` : `${creature.name} Rod & Lure — How to Fish Game`;
   const html = `<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>${creature.name} Rod & Lure — How to Fish Game</title>
+  <title>${pageTitle}</title>
   <meta name="description" content="${description}">
   <link rel="canonical" href="${canonical}"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/styles.css">
   <script type="application/ld+json">${schema}</script>
