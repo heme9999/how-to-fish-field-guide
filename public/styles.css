@@ -115,13 +115,9 @@ h3 { font-size: 1.25rem; }
 .content { max-width: 780px; }
 .notice { border-left: 5px solid var(--coral); padding: 16px 20px; background: #fff3dc; margin: 24px 0; }
 .database-section { padding-top:20px; }
-.coverage-meter { margin:0 0 24px; padding:20px; border:1px solid var(--line); background:var(--panel); }
-.coverage-meter > div:first-child { display:flex; align-items:baseline; gap:12px; }
-.coverage-meter strong { color:var(--sea-dark); font:900 2rem/1 ui-monospace,monospace; }
-.coverage-meter span, .coverage-meter p { color:var(--muted); }
-.coverage-meter p { margin:10px 0 0; font-size:.9rem; }
-.coverage-track { height:9px; margin-top:14px; overflow:hidden; border-radius:999px; background:#ddd3bc; }
-.coverage-track span { display:block; height:100%; background:var(--coral); }
+.coverage-summary { display:flex; align-items:baseline; gap:12px; margin:0 0 24px; padding:15px 18px; border:1px solid var(--line); border-left:5px solid var(--sea); background:var(--panel); }
+.coverage-summary strong { white-space:nowrap; color:var(--sea-dark); }
+.coverage-summary span { color:var(--muted); }
 .table-wrap { overflow-x: auto; border-radius: 12px; border: 1px solid var(--line); background: var(--panel); }
 .mobile-table-hint { display:none; color:var(--muted); font-size:.9rem; }
 table { width: 100%; border-collapse: collapse; min-width: 680px; }
@@ -129,6 +125,8 @@ th, td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--li
 th { background: var(--sea-dark); color: #fff; }
 tr:last-child td { border-bottom: 0; }
 .tracker-section { padding-top:10px; }
+.early-access-note { margin:0 0 24px; padding:18px 20px; border:1px solid #d7b376; border-left:5px solid #d58931; background:#fff4dc; }
+.early-access-note p { margin:4px 0 0; color:var(--muted); }
 .filters { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 22px; }
 input[type="search"], select { min-height: 44px; padding: 0 12px; border: 1px solid #afa58d; border-radius: 8px; background: #fff; font: inherit; }
 .quiet-button { min-height:44px; margin-left:auto; padding:0 14px; border:1px solid #a99d84; border-radius:8px; color:var(--sea-dark); background:transparent; font:inherit; font-size:.9rem; font-weight:700; cursor:pointer; }
@@ -212,6 +210,8 @@ input[type="search"], select { min-height: 44px; padding: 0 12px; border: 1px so
   .database-page td:nth-child(3)::before { content:"Rod"; }
   .database-page td:nth-child(4)::before { content:"Lure"; }
   .database-page td:nth-child(5)::before { content:"Status"; }
+  .coverage-summary { display:block; }
+  .coverage-summary strong { display:block; margin-bottom:5px; white-space:normal; }
 }
 
 @media (prefers-reduced-motion: reduce) {
